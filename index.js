@@ -14,14 +14,13 @@ module.exports = (api, options) => {
 
       chain.plugin('define')
         .tap(args => {
-          const { 'process.env': env, ...rest } = args[0]
+          const { 'process.env': env } = args[0]
           return [{
             'process.env': Object.assign(
               {},
               env,
               { THEME: JSON.stringify(theme) }
-            ),
-            ...rest
+            )
           }]
         })
     }
